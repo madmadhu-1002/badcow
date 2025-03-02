@@ -3,7 +3,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import shopRoutes from './routes/shop.js';
 import adminRoutes from './routes/admin.js';
-import authRoutes from './routes/auth.js'
+import authRoutes from './routes/auth.js';
+import Product from './models/product.js';
 
 const app = express();
 
@@ -14,6 +15,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/admin', adminRoutes);
 app.use('/shop', shopRoutes);
 app.use('/auth',authRoutes);
+
+app.get('/products', async (req, res) => {
+    try {
+        const products = await Product.find(); // Fetch all products from MongoDB
+        res.json(products); // Send them as JSON response
+    } catch (err) {
+        res.status(500).json({ message: "Error fetching products", error: err });
+    }
+});
 
 app.use((req, res, next) => {
     res.status(404).send('<h1>Page not found');

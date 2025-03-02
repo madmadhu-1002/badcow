@@ -5,14 +5,7 @@ import adminMiddleware from '../middleware/admin.js';
 
 const router = express.Router();
 
-router.get('/products', authMiddleware, async (req, res) => {
-    try {
-        const products = await Product.find(); // Fetch all products from MongoDB
-        res.json(products); // Send them as JSON response
-    } catch (err) {
-        res.status(500).json({ message: "Error fetching products", error: err });
-    }
-});
+
 
 router.post('/products', authMiddleware, adminMiddleware, async (req, res) => {
     try {
