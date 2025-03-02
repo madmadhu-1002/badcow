@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI;
 
 mongoose
-.connect("mongodb+srv://mahidhar:Mahi985298@badcow.yxt8s.mongodb.net/badcowbadcow?retryWrites=true&w=majority&appName=badcow")
+.connect(MONGO_URI)
     .then((result) => {
         
     app.listen(PORT, () => {
