@@ -19,7 +19,8 @@ app.use((req, res, next) => {
     res.status(404).send('<h1>Page not found');
 })
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose
 .connect("mongodb+srv://mahidhar:Mahi985298@badcow.yxt8s.mongodb.net/badcowbadcow?retryWrites=true&w=majority&appName=badcow")
@@ -30,7 +31,6 @@ mongoose
     });
 })
 .catch(err => {
-    console.log("hy")
     console.log(err);
 });
 // Start the server on port 3000
