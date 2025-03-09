@@ -1,0 +1,23 @@
+{
+  "name": "badcow",
+  "version": "1.0.0",
+  "description": "lifestyle",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "build": "npm install",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

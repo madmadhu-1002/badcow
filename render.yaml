@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: my-node-app
+    runtime: node
+    region: oregon  # Change as needed
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 18  # Set your Node.js version
+      - key: PORT
+        value: 10000  # Render auto-assigns a PORT
+    buildCommand: npm install
+    startCommand: npm start
