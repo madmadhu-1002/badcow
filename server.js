@@ -5,8 +5,10 @@ import shopRoutes from './routes/shop.js';
 import adminRoutes from './routes/admin.js';
 import authRoutes from './routes/auth.js';
 import Product from './models/product.js';
+import cors from 'cors'
 
 const app = express();
+app.use(cors()); // Allow all origins
 
 app.use(express.json()); 
 app.use(bodyParser.urlencoded({ extended: false }));
